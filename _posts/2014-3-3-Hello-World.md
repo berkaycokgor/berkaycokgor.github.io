@@ -1,6 +1,6 @@
 ---
 layout: post
-title: You're up and running!
+title: will be a personal blog
 ---
 
 coming soon inş.
