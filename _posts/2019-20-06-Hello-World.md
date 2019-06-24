@@ -21,13 +21,13 @@ Benim ağımda bu şekilde oluyor ve tarama sonucuna bakıyoruz.
 Ve bu şekilde 80 portundan web servisi sunan makinemizi buluyoruz.
 Hemen tarayıcımızı açıp ne varmış acaba burada diyoruz.
 
-[![image](https://i.hizliresim.com/86g1Dr.png)](https://hizliresim.com/86g1Dr)
+![enter image description here](https://i.ibb.co/6rKfrhD/2.png)
 
 Karşımıza böyle bir web sayfası çıkıyor ve teşekkür ediyoruz çünkü bizi binary dosyayı bulmakla uğraştırmadı.
 Dosyayı indirip incelemeye başlıyoruz.
 **file** programı dosya tiplerini belirlemek için kullanılıyor.
 
-[![image](https://i.hizliresim.com/JVY2nq.png)](https://hizliresim.com/JVY2nq)
+![enter image description here](https://i.ibb.co/NjLSHrS/3.png)
 Görüldüğü gibi 32-bit  linux sistemler için derlenmiş çalıştırılabilir bir dosya.
 LSB("Least Significant Bit") yazmasından da Little Endian formatında olduğunu anlıyoruz.
 Endian formatını bilmek buffer overflow zafiyetlerinin exploit edilmesi açısından önemli bir nokta.Endianness kısmına yazının ilerleyen kısımlarında değineceğiz.
@@ -59,7 +59,7 @@ Biz de yine makine adından yola çıkarak "overflow" yapmayı, programı bozmay
 
 Bu ana kadar sakin sakin gelmiştim ama buradan sonra direkt barzoya bağlayıp "A" ları basmaya başladım :)
 
-[![image](https://i.hizliresim.com/OrqM70.png)](https://hizliresim.com/OrqM70)
+![enter image description here](https://i.ibb.co/sj3f6WP/4.png)
 
 Sonrasında elle A'ya abanmak yetmeyince python ile daha rahat yaparım deyip 
 
@@ -82,18 +82,20 @@ Böylece yazımızın sonuna...
 Ben incelemek için Ghidra kullandım çünkü alternatiflerine göre decompiler'ı güçlü.
 Daha temiz decompile eden ücretsiz alternatifine henüz denk gelmedim.
 
-[![image](https://i.hizliresim.com/yGM4L0.png)](https://hizliresim.com/yGM4L0)
+![enter image description here](https://i.ibb.co/6r9rdSf/5.png)
 
 Sembol tablosu ("Compiler'lar tarafından üretilen, dosyanın içinde olan fonksiyonların classların vs. lerin isimlerini tutan bir tablo")'na bakıp ("Ghidra tree yapısında verdiği için Symbol Tree yazmış").
 Fonksiyonlar sekmesine girdiğimizde alışık olduğumuz main'in haricinde *jmpesp* ve *handleCommand* fonksiyonları gözümüze çarpıyor.
 *handleCommand* bizim üstte exploit etmeye çalıştığımız input bekleyen kısma benzediğinden ilk onu incelemeye koyuldum.
-[![image](https://i.hizliresim.com/6D2n5N.png)](https://hizliresim.com/6D2n5N)
+
+![enter image description here](https://i.ibb.co/Px0hdnS/6.png)
+
 Decompile kısmını incelediğimizde bir parametre aldığını ve o parametrenin strcpy fonksiyonuna parametre olarak verildiğini görüyoruz.
 strcpy fonksiyonunu araştırırsanız buffer overflow'a sebep olabilecek, zafiyet barındıran bir fonksiyon olduğunu görebilirsiniz.
 Her şey tamam gibi duruyor ancak biz bir nedenden dolayı bu programı crash ettiremedik.
 Neden olduğunu anlamak için main fonksiyonuna gidip incelememiz gerekiyor.
 
-[![image](https://i.hizliresim.com/WXnY1q.png)](https://hizliresim.com/WXnY1q)
+![enter image description here](https://i.ibb.co/qYTKXgS/7.png)
 
 Gözlerimiz *handleCommand* fonksiyonunun çağrıldığı yeri arıyor ve 62. satırda kendisine rastlıyoruz.
 Görüyoruz ki bu fonksiyonun çağrılması bir if bloğu içerisinde yani belli şartlar sağlandığında bu fonksiyon çağrılıyor.
@@ -106,7 +108,7 @@ local_454 değişkeni de yüksek ihtimalle bizim input'umuzun atandığı deği�
 Buradan anlıyoruz ki bizim barzo gibi gönderdiğimiz "A" lar bu karşılaştırmayı geçememiş.
 Hemen gönderdiğimiz payload'u düzenliyoruz ve ilk 9 harfini "OVERFLOW " ile değiştiriyoruz.
 
-[![image](https://i.hizliresim.com/3ODoYO.png)](https://hizliresim.com/3ODoYO)
+![\[](https://i.ibb.co/C9x2JC5/8.png)
 
 Bu sefer "TRY HARDER!" a düşmedik.
 Bu iyi bir şey.
