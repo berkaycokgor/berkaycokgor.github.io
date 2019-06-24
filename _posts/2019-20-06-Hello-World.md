@@ -3,6 +3,11 @@ layout: post
 title: OVERFLOW MACHINE WRITE UP
 ---
 
+---
+layout: post
+title: OVERFLOW MACHINE WRITE UP
+---
+
 # OVERFLOW MACHINE WRITE UP
 
 Merhabalar,
@@ -262,12 +267,12 @@ Hemen test edip görelim.
 
 Gördüğünüz gibi 0x42424242 ile Segmentation fault hatası aldık ve ESP'nin gösterdiği bölgenin ilk 15 byte'ını ekrana bastığımızda ilk 10 byte'ı 0x43 değerleri ile dolu.
 
-O zaman artık EIP'nin içine *jmpesp* fonksiyonunun adresini yazalım ve buraya zıplamasını sağlayalım.
+O zaman artık EIP'nin içine *jmpesp* fonksiyonunun adresini yazalım ve  programın ESP'nin işaret ettiği adresten devam etmesini sağlayalım.
 
 ![enter image description here](https://i.ibb.co/tHgYfhg/ov-jmpesp.png)
 
 Üstte de içine bakmak için disassemble ettiğimiz fonksiyonun başlangıç adresi 0x0804928d
-Bizim bunu  hafızaya doğru şekilde yazdırmamız için yukarıda bahsettiğim Endian kavramını göz önüne getirmemiz gerekiyor.
+Bizim bunu  hafızaya doğru şekilde yazdırmamız için yukarıda bahsettiğim Endianness kavramını göz önüne getirmemiz gerekiyor.
 programa file komutunu verdiğimizde bize "LSB" yani Little Endian formatında olduğunu söylemişti.
 Little Endian formatında bytelar hafızaya tersten yazılır.Yani hafızada 
 08 04 92 8d olarak gözükmesini istiyorsak
@@ -357,11 +362,11 @@ Scriptimizin son hali bu şekilde.
         s.connect(("192.168.2.147",1337))
         s.send(payload)
         
-Bunu script'i .py uzantılı şekilde kaydediyoruz.
+Bu script'i .py uzantılı şekilde kaydediyoruz.
 
-Bu arada çaktırmadan vulnserver programının exploit'ini de yazmış olduk. :)
+Bu arada çaktırmadan vulnserver programının exploitini de yazmış olduk. :)
 
-Exploit'imizi çalıştırmadan önce gelen bağlantıyı dinlememiz gerekiyor.
+Exploitimizi çalıştırmadan önce gelecek olan bağlantıyı dinlememiz lazım.
 Dönecek bağlantı meterpreter olduğu için metasploit'in içinden dinlememiz gerekiyor.
 Bunun için de metasploit handler'ını açıyoruz ve gerekli parametreleri veriyoruz.
 
@@ -369,7 +374,7 @@ Bunun için de metasploit handler'ını açıyoruz ve gerekli parametreleri veri
 
 Burası gelecek bağlantıları dinlemeye başladı.
 Geriye kalan tek şey exploitimizi çalıştırmak.
-Ben script'i overflowexploit adıyla kaydettim.
+Ben dosyayı overflowexploit adıyla kaydettim.
 
 ![enter image description here](https://i.ibb.co/Ch3CfkP/ov-exploit.png)
 
@@ -390,5 +395,5 @@ shell'e düşüp biraz gezinelim.
 Böylece bu makine için user flagimizi elde ettik ve ilk aşamayı tamamladık.
 
 Bu yazıyı uzun olduğu için burada sonlandırıyorum.
-Makinede root hakları elde etme aşaması 2. partta olacak diye umuyorum.
+Makinede root hakları elde etme aşaması yazımızın 2. partında olacak.
 
