@@ -6,6 +6,7 @@ permalink: /about/
 
 likes low level computer stuff. also sucks at it.
 
+all content are for educational purposes.
 ### Contact me
 
 [bcokgor@ieee.org](mailto:bcokgor@ieee.org)
