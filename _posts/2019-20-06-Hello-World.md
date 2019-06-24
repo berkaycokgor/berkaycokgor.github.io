@@ -16,7 +16,7 @@ Nmap'e kendi ağımıza uygun parametreleri veriyoruz.
 
     nmap 192.168.2.0/24
 Benim ağımda bu şekilde oluyor ve tarama sonucuna bakıyoruz.
-[![image](https://i.hizliresim.com/qAYYXR.png)](https://hizliresim.com/qAYYXR.png)
+![enter image description here](https://i.hizliresim.com/qAYYXR.png)
 
 Ve bu şekilde 80 portundan web servisi sunan makinemizi buluyoruz.
 Hemen tarayıcımızı açıp ne varmış acaba burada diyoruz.
