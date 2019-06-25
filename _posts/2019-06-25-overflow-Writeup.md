@@ -379,7 +379,7 @@ Sonrasında handler'ımızın çalıştığı sekmeye geri dönüyoruz veee...
 
 ![enter image description here](https://i.ibb.co/PFygbB0/ov-meterpreter.png)
 
-![enter image description here](https://im2.ezgif.com/tmp/ezgif-2-5d55e275ef2b.gif)
+![enter image description here](https://media.giphy.com/media/ekMK9IKH6yvnsWXvWM/giphy.gif)
 
 
 gif via : [reddit](https://www.reddit.com/r/blackhat/comments/c2kjc9/the_happiness_of_getting_a_meterpreter_session/?utm_source=share&utm_medium=web2x)
