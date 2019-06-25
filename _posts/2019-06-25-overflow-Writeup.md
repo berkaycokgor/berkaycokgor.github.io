@@ -3,8 +3,6 @@ layout: post
 title: OVERFLOW MACHINE WRITE UP
 ---
 
-# OVERFLOW MACHINE WRITE UP
-
 Merhabalar,
 İlk blog yazım olan Overflow makinesinin çözümüne hoş geldiniz.
 Çözüm ile beraber buffer overflow zafiyetlerini exploit etme yöntemlerinden birini ayrıntılı anlatmaya çalıştım.
