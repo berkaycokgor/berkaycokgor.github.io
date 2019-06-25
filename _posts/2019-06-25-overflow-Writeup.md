@@ -15,6 +15,7 @@ Nmap'e kendi ağımıza uygun parametreleri veriyoruz.
     nmap 192.168.2.0/24
     
 Benim ağımda bu şekilde oluyor ve tarama sonucuna bakıyoruz.
+
 ![enter image description here](https://i.ibb.co/9Tg8Qsq/1.png)
 
 Ve bu şekilde 80 portundan web servisi sunan makinemizi buluyoruz.
