@@ -101,10 +101,12 @@ Neden olduğunu anlamak için main fonksiyonuna gidip incelememiz gerekiyor.
 Gözlerimiz *handleCommand* fonksiyonunun çağrıldığı yeri arıyor ve 62. satırda kendisine rastlıyoruz.
 Görüyoruz ki bu fonksiyonun çağrılması bir if bloğu içerisinde yani belli şartlar sağlandığında bu fonksiyon çağrılıyor.
 Yoksa önceden karşılaştığımız gibi "TRY HARDER!" deyip bizi paketliyor.
+
 iVar2 adlı değişkenin 0 olduğu durumda fonksiyonumuzun çağrıldığını görüyoruz.
 bu değişkene de `strncmp("OVERFLOW ",local_454,9)` fonksiyonundan dönen değer atanıyor.
 strncmp fonksiyonunu araştırdığımızda isminden de tahmin edilebileceği gibi iki string'i karşılaştırıyor, eğer aynılar ise 0 döndürüyor ve 3. parametre olan 9 da ilk 9 karakteri karşılaştırıp gerisine bakmıyor.
 Yani local_454 değişkeninin ilk 9 karakteri "OVERFLOW "("Sonunda bir boşluk karakteri olduğuna dikkat edelim") mu diye bakıyor bu fonksiyon.
+
 local_454 değişkeni de yüksek ihtimalle bizim input'umuzun atandığı değişkendir diye tahmin ediyoruz.
 Buradan anlıyoruz ki bizim barzo gibi gönderdiğimiz "A" lar bu karşılaştırmayı geçememiş.
 Hemen gönderdiğimiz payload'u düzenliyoruz ve ilk 9 harfini "OVERFLOW " ile değiştiriyoruz.
@@ -162,15 +164,19 @@ Programlar çalışmaya başladığında işletim sistemi onlara belli bir hafı
 Basit şekilde programların çalışan haline de process diyebiliriz.
 Hiçbir process kendisine ait olmayan hafıza alanına veri yazamaz, hafıza alanından veri okuyamaz.
 Sadece kendisine atanan hafıza alanında işlem yapabilir.
+
 Biz de verdiğimiz input ile bu hafıza alanında duran, programın bir sonraki çalıştıracağı instruction'ın adresini tutan EIP registerının üzerine A karakterlerini yazdırdığımız için program normalde  0x08452357 ("formata uygun sallamasyon değer") gibi bir değer tutan ve process'e atanmış hafıza alanına ait olan bir adrese gitmek yerine 0x41414141 ("A karakterinin hex karşılığı") adresindeki kodu çalıştırmayı denedi.
 Bu adres de kendisine ait olmadığı için işletim sistemi "hayırdır kardeş sen?" deyip segmentation fault sinyalini programa gönderdi ve program sonlandı. 
 Madem biz hafıza alanına istediğimizi yazabiliyoruz,
 O halde payload'umuzu barzo gibi değil de düzgün şekilde programın ulaşabileceği bir adrese yönlendirseydik ve bu adreste bizim hafızaya istediğimiz şekilde doldurduğumuz instruction'lar olsaydı ne olurdu?
+
 Ekşınlı şeyler olabilirdi :)
+
 O zaman bu hayalimizi gerçekleştirmeyi deneyelim.
 
 İlk olarak EIP registerının üzerine payload'umuzun neresinde yazmaya başladığımızı bulmamız gerekiyor. 
 Çünkü EIP Registerı bir sonraki çalışacak instruction'ın adresini tutuyor ve bizim burasının kontrolünü hatasız ele geçirmemiz gerekiyor ki çalışmasını istediğimiz instruction'ın adresini doğru verebilelim.
+
 Bunu belirleme işlemini manuel  olarak "A" sayısını 500 ("ben payload'umda 500 seçtiğim için başlangıç noktası olarak da 500 seçtim") den kademeli olarak azaltarak yapabilirsiniz. 250 denersiniz hala 0x41414141 ile doluyorsa EIP, 125 denersiniz ta ki oraya yazdığınız "A" karakterlerinden sonraki 4 byte EIP Register'ının üzerine yazasaya kadar.
 ("Program 32 bit, Registerlar 32-bit veri tutabiliyor, 4 byte=32 bit)
 
@@ -197,6 +203,7 @@ Ve verdiğimiz adreste bizim istediğimiz kodların olacağını nereden bilece�
 farklı cevabı mevcut.
 Biz bu dosya için uygun olan yöntemle ilerleyeceğiz.
 Hatırlarsanız sembol tablosunda handleCommand ile beraber ilginç bir fonksiyon daha görmüştük.
+
 *jmpesp* fonksiyonu
 Bu bize bir assembly instruction'ı olan JMP ESP yi anımsatıyor.
 Ve yöntemlerden bir tanesi de fonksiyonun dönüş adresindeki komutun ESP register'ına zıplaması.Yani JMP ESP instruction'ı bulmak.
@@ -209,6 +216,7 @@ bu fonksiyon bize ipucu ve kolaylık olsun diye konulmuş.
 Bildiğiniz gibi fonksiyonlar çalıştırıldıktan sonra çağırıldığı yerden çalışmaya devam eder.
 Biz de fonksiyonları istersek 2-3 yerden çağırabiliriz.
 Peki fonksiyon çağırıldığı yere geri nasıl dönebiliyor, yani 2-3 farklı yerden çağırıldıysa hangi adrese döneceğini nereden biliyor?
+
 Epilog ve prolog olayları sayesinde.
 Çağırılan fonksiyonların şu satır ile başladığını göreceksiniz.
 
