@@ -143,7 +143,7 @@ Burada gdb de aynı anda tek processi debug edebileceği için default tanımlı
 Bu da muhtemelen demek oluyor ki bir süredir başka processler crash oluyor ama haberimiz yok.
 Hangi process'i debug etmeye devam edeceğinin ayarını child'a çevirmek için gdb'ye
 
-    set-follow-forkmode child
+    set-follow-fork-mode child
     
 şu komutu verebiliyormuşuz.
 
