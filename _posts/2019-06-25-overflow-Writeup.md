@@ -235,6 +235,7 @@ Sonra fonksiyonun çağırıldığı yere dönebilmesi için.
     PUSH EBP
     MOV EBP,ESP
     SUB ESP,0x60
+    
 Bu olayın adı prolog
 60 salladığım bir değer bu arada, buna compiler karar veriyor.
 
