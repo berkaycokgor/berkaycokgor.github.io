@@ -149,9 +149,12 @@ Lets try it and see if our guess was true
 ![enter image description here](https://i.ibb.co/VNsgQyw/dmv16.png)
 
 Yay! In output part we see www-data ! which means we managed to run whoami command on the server
+
 The reason of you see %26(url encoded version of &) instead of & in our request is "&" has a special meaning in http post requests.
 It is used to separate parameters so if you write "&" directly it doesn't behave like you want and not added to payload. You have to encode this character.
+
 Yeah, even if we managed to run command on server, we still have a big problem with whitespaces. Since our goal is to get a nice shell from server, we cannot do this with one word commands.We have to figure it out.
+
 At this point I immediately opened google and searched "how to bash script without whitespaces?" directly. :D
 
 ![enter image description here](https://i.ibb.co/ncLb0Mj/dmv17.png)
