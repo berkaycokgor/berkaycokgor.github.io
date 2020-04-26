@@ -139,6 +139,7 @@ Since we know it , we have to put command bind chars in the beginning of our pay
 
 |whoami|
 
+
 |whoami&
 
 &whoami&
