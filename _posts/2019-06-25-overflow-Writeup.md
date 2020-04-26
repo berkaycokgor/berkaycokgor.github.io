@@ -5,6 +5,7 @@ title: OVERFLOW MACHINE WRITE UP
 
 Merhabalar,
 İlk blog yazım olan Overflow makinesinin çözümüne hoş geldiniz.
+
 Çözüm ile beraber buffer overflow zafiyetlerini exploit etme yöntemlerinden birini ayrıntılı anlatmaya çalıştım.
 İsminden de anlaşılacağı gibi Buffer Overflow zafiyetleri üzerinden ilerleyen bir makine.
 Eğer **Buffer Overflow** kelimesi size bir şey ifade etmiyorsa sizi [şu](https://www.youtube.com/watch?v=1S0aBV-Waeo) videoya alalım.
