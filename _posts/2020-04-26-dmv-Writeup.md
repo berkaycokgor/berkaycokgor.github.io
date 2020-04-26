@@ -43,7 +43,7 @@ Link below(Download MP3) sent me to /tmp/downloads/somerandomnumbers.mp3
 Checked /tmp/ and /tmp/downloads/ directories.
 
 /tmp/ was 403 Forbidden and /tmp/downloads/ 404 Not Found(?)
-So downloaded mp3 file and started to investigate it. Found nothing interesting.
+So downloaded mp3 file and started to analyze it. Found nothing interesting.
 I didn't know anything about converters or audio-video formats so I moved on things at least I know something about.
 
 I went back to Web Page again.
@@ -79,7 +79,7 @@ https://github.com/ytdl-org/youtube-dl
 **Command-line** program to download videos from YouTube.com and other video sites
 
 I highlighted command-line part because it highly alerts me there can be OS command injection.
-Of course  if our inputs isn't filtered well.
+Of course  if our inputs aren't filtered well.
 I installed youtube-dl to play with it and understand how it works.
 
 ![enter image description here](https://i.ibb.co/4SmmyL2/dmv9.png)
@@ -106,9 +106,9 @@ See?  When you try to bind an unrecognized command with " | " it generates the s
 Looks like we managed to make the application behave in an unexpected way,
 Which is the way we want
 
-After a few tries I couldn't get any output or any signal that my payload works.
+After a few tries I couldn't get any output or signal that my payload works.
 I tried "| whoami" , "| sleep 15" and things like that.
-Nothing works.
+Nothing worked.
 
 But I noticed that "url_original" key in the response looks like it contains our input.
 Furthermore, I noticed that in the "url_original" it only contains the things until the whitespace.
@@ -176,7 +176,7 @@ I set up a python web server on my kali machine with b374k shell named "b.php" i
 
 ![enter image description here](https://i.ibb.co/TtP79jp/dmv19.png)
 
-Wee see the "b.php saved" output.
+We see the "b.php saved" output.
 Let's check our webshell.
 
 ![enter image description here](https://i.ibb.co/4t8K0Tb/dmv20.png)
