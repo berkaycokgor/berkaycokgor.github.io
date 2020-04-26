@@ -137,7 +137,7 @@ Thus, we are pretty sure that our payload will be putted in the middle of the co
 
 Since we know it , we have to put command bind chars in the beginning of our payload as well as end of it.
 
-|whoami|
+||whoami||
 
 
 |whoami&
