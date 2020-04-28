@@ -137,11 +137,8 @@ Thus, we are pretty sure that our payload will be putted in the middle of the co
 
 Since we know it , we have to put command bind chars in the beginning of our payload as well as end of it.
 
-" |whoami| "
 
-" |whoami& "
-
-" &whoami& "
+![enter image description here](https://i.ibb.co/c6FjXTW/dmv28.png)
 
 it must look like this.
 Lets try it and see if our guess was true
